@@ -1,0 +1,25 @@
+services:
+  - type: web
+    name: lingguang-bazi
+    runtime: node
+    plan: starter
+    buildCommand: npm install
+    startCommand: npm start
+    healthCheckPath: /health
+    envVars:
+      - key: NODE_VERSION
+        value: 24
+      - key: HOST
+        value: 0.0.0.0
+      - key: DEEPSEEK_API_URL
+        value: https://api.deepseek.com/chat/completions
+      - key: DEEPSEEK_MODEL
+        value: deepseek-chat
+      - key: BAZI_YUN_SECT
+        value: 1
+      - key: DEEPSEEK_API_KEY
+        sync: false
+      - key: DATABASE_URL
+        sync: false
+      - key: DATABASE_SSL
+        value: true
