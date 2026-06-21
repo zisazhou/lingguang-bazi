@@ -1,0 +1,7 @@
+.env
+node_modules/
+.npm-cache/
+data/reports.json
+.DS_Store
+.codex-inspect/
+output/
