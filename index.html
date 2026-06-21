@@ -1,0 +1,158 @@
+<!doctype html>
+<html lang="zh-CN">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>灵光命盘 · 八字精批</title>
+    <meta name="description" content="输入出生年月日时，生成八字四柱预览，付费解锁完整命理分析。" />
+    <link rel="stylesheet" href="styles.css" />
+    <script src="script.js" defer></script>
+  </head>
+  <body>
+    <header class="site-header">
+      <a class="brand" href="#top" aria-label="灵光命盘">
+        <span class="brand-mark" aria-hidden="true">
+          <span class="brand-icon"></span>
+        </span>
+        <span>灵光命盘</span>
+      </a>
+      <a class="profile-pill" href="#paipan">八字精批</a>
+    </header>
+
+    <main id="top">
+      <section class="intro-section" aria-labelledby="intro-title">
+        <div class="intro-mark" aria-hidden="true">
+          <span class="bazi-icon">
+            <i></i>
+            <i></i>
+            <i></i>
+            <i></i>
+          </span>
+        </div>
+        <h1 id="intro-title">八字精批</h1>
+        <p>输入生辰，先看命盘，再看流年。</p>
+      </section>
+
+      <section class="panel input-panel" id="paipan" aria-labelledby="paipan-title">
+        <p class="section-kicker">出生信息</p>
+        <h2 id="paipan-title">请选择出生年月日时</h2>
+
+        <form id="baziForm" class="bazi-form">
+          <div class="input-grid">
+            <label class="field-card">
+              <span>出生年</span>
+              <select name="birthYear" id="birthYear" required></select>
+            </label>
+
+            <label class="field-card">
+              <span>出生月</span>
+              <select name="birthMonth" id="birthMonth" required></select>
+            </label>
+
+            <label class="field-card">
+              <span>出生日</span>
+              <select name="birthDay" id="birthDay" required></select>
+            </label>
+
+            <label class="field-card">
+              <span>出生时间</span>
+              <input name="birthTime" type="time" required />
+            </label>
+          </div>
+
+          <fieldset class="gender-field">
+            <legend>性别</legend>
+            <div class="gender-options">
+              <label>
+                <input type="radio" name="gender" value="female" required />
+                <span>女</span>
+              </label>
+              <label>
+                <input type="radio" name="gender" value="male" required />
+                <span>男</span>
+              </label>
+            </div>
+          </fieldset>
+
+          <button class="gold-button" type="submit">生成八字四柱</button>
+        </form>
+      </section>
+
+      <section class="panel chart-panel" aria-labelledby="chart-heading">
+        <div class="section-row">
+          <div>
+            <p class="section-kicker">免费命盘</p>
+            <h2 id="chart-heading">八字四柱</h2>
+          </div>
+          <span class="status-pill" id="chartStatus">待生成</span>
+        </div>
+
+        <p class="chart-summary" id="chartSummary">选择出生信息后生成基础四柱。正式上线时这里接 AI 排盘接口。</p>
+
+        <div class="bazi-table" id="baziTable" aria-label="八字四柱">
+          <div class="table-cell table-label"></div>
+          <div class="table-cell table-head">年柱</div>
+          <div class="table-cell table-head">月柱</div>
+          <div class="table-cell table-head">日柱</div>
+          <div class="table-cell table-head">时柱</div>
+
+          <div class="table-cell row-label">天干</div>
+          <div class="table-cell stem">--</div>
+          <div class="table-cell stem">--</div>
+          <div class="table-cell stem">--</div>
+          <div class="table-cell stem">--</div>
+
+          <div class="table-cell row-label">地支</div>
+          <div class="table-cell branch">--</div>
+          <div class="table-cell branch">--</div>
+          <div class="table-cell branch">--</div>
+          <div class="table-cell branch">--</div>
+        </div>
+      </section>
+
+      <section class="panel unlock-panel" id="report" aria-labelledby="unlock-title">
+        <div class="section-row">
+          <div>
+            <p class="section-kicker">付费内容</p>
+            <h2 id="unlock-title">解锁完整命理</h2>
+          </div>
+          <strong class="unlock-price">¥9.9</strong>
+        </div>
+
+        <p class="unlock-lead">下方所有内容一次解锁，本次命盘终身可看。</p>
+
+        <div class="unlock-list">
+          <div>
+            <strong>事业 / 财运 / 感情 / 健康</strong>
+            <span>四大核心，每段 350-600 字，含古籍引证</span>
+          </div>
+          <div>
+            <strong>10 步大运推演</strong>
+            <span>每步十年，吉凶、用神配合详解</span>
+          </div>
+          <div>
+            <strong>流年逐月走势</strong>
+            <span>今年 12 个月吉凶时机 + 明年预告</span>
+          </div>
+          <div>
+            <strong>古籍引证</strong>
+            <span>《渊海子平》《滴天髓》《三命通会》等 6 部经典</span>
+          </div>
+        </div>
+
+        <button class="gold-button unlock-button" type="button" id="unlockButton">
+          解锁全部命理 ¥9.9
+        </button>
+        <p class="fine-print">一次付费 · 立即解锁 · 本次命盘终身可看</p>
+
+        <div class="paid-preview" id="paidPreview" aria-live="polite">
+          <div class="locked-line">付费后展示：四大核心详批、十步大运、逐月流年、明年预告。</div>
+        </div>
+      </section>
+    </main>
+
+    <footer class="site-footer">内容仅作传统文化参考，不替代医疗、法律、投资等专业建议。</footer>
+
+    <div class="toast" id="toast" role="status" aria-live="polite"></div>
+  </body>
+</html>
